@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>手把手教你搭建Minecraft服务器#1 - Hachimi2333</title>
+
+  
+    <meta name="description" content="说在前面本教程仅实用于Java版Minecraft，操作环境为Windows系统，基岩版、Linux请期待。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你搭建Minecraft服务器#1">
+<meta property="og:url" content="https://www.hachimi2333.tk/posts/minecraftserver1/index.html">
+<meta property="og:site_name" content="Hachimi2333">
+<meta property="og:description" content="说在前面本教程仅实用于Java版Minecraft，操作环境为Windows系统，基岩版、Linux请期待。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-12T14:54:31.912Z">
+<meta property="article:modified_time" content="2022-10-25T08:00:31.734Z">
+<meta property="article:author" content="Hachimi2333">
+<meta property="article:tag" content="Minecraft">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://assets.hachimi2333.tk/avatar.JPG" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Hachimi2333</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/project/">项目</a><a class="nav-item" href="/tools/">工具</a><a class="nav-item" href="/about/">关于</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text">说在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%81%E6%B1%82"><span class="toc-text">要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%80%89%E6%8B%A9"><span class="toc-text">服务端选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%AF%E5%87%80%E7%AB%AF"><span class="toc-text">纯净端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%BB%84%E7%AB%AF"><span class="toc-text">模组端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">启动服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEOP"><span class="toc-text">设置OP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEserver-properties"><span class="toc-text">配置server.properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E8%AE%BE%E5%AE%9A"><span class="toc-text">一些基本设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E8%AE%BE%E5%AE%9A"><span class="toc-text">高级设定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Minecraft/">Minecraft</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/Minecraft/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-09-12T14:54:31.912Z">2022-09-12</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>手把手教你搭建Minecraft服务器#1</span></h1>
+<h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>本教程仅实用于<strong>Java</strong>版Minecraft，操作环境为<strong>Windows</strong>系统，基岩版、Linux请期待。</p>
+<span id="more"></span>
+
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p> 开一个Minecraft服务器，你应该具备的条件有</p>
+<ul>
+<li><code>Java</code>运行环境（请准备好Minecraft版本所对应需求的Java版本）</li>
+<li>一台正常运作的电脑，且运行内存<code>4G</code>以上（推荐<code>8G</code>及以上）</li>
+<li>懂一些Minecraft相关知识</li>
+<li>系统版本推荐属于Windows8.1及以上，或者较新版本的Linux</li>
+<li>有一副勤劳的双手</li>
+<li>耐心</li>
+</ul>
+<h2 id="服务端选择"><a href="#服务端选择" class="headerlink" title="服务端选择"></a>服务端选择</h2><h3 id="纯净端"><a href="#纯净端" class="headerlink" title="纯净端"></a>纯净端</h3><ul>
+<li>PaperMC（推荐）</li>
+</ul>
+<p>Spigot 的进一步优化版本，在相关算法方面，较 Spigot 有所提高，优化 TPS 等，支持 CraftBukkit 和 Spigot 插件，API 没有太大修改。在 1.9 版本之前都带有反作弊功能，1.9 之后的版本需要自行安装其他反作弊插件。</p>
+<p>注意：Paper对游戏内一些<code>“特性”</code>进行了修复</p>
+<p><a target="_blank" rel="noopener" href="https://papermc.io/">官网链接</a></p>
+<ul>
+<li>Spigot（较推荐）</li>
+</ul>
+<p>Spigot 是 CraftBukkit 服务端之后的延续版本，比 CraftBukkit 优化了不少地方，支持 CraftBukkit 的插件，性能比 CraftBukkit 好很多，并且自带反作弊功能</p>
+<p><a target="_blank" rel="noopener" href="https://spigotmc.org/">官网链接</a></p>
+<ul>
+<li>官方服务端（不推荐）</li>
+</ul>
+<p>Minecraft Server 是 Mojang 官方制作的原版服务端，更新非常快，基本上和 Minecraft 客户端版本同时发布，<strong>不能安装任何 Mod 和插件</strong>，只能够使用原版的命令和物品，适合基友服联机使用。</p>
+<p><a target="_blank" rel="noopener" href="https://minecraft.net/">官网链接</a></p>
+<h3 id="模组端"><a href="#模组端" class="headerlink" title="模组端"></a>模组端</h3><ul>
+<li>Arclight（推荐）</li>
+</ul>
+<p>Arclight 是在 Forge 上使用 Mixin 实现的 Bukkit 服务端，可在 Forge 环境下加载 Bukkit 插件。支持<strong>高版本</strong>的Minecraft</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/IzzelAliz/Arclight">GitHub链接</a></p>
+<ul>
+<li>Mohist（推荐）</li>
+</ul>
+<p>Mohist 是一个全新的 Minecraft Forge 服务端，核心采用 Forge + Paper 结构，开发环境使用ForgeGradle，支持 Forge mod 和 Paper 系列插件。Mohist 目前稳定性良好，仍在不断更新</p>
+<p><a target="_blank" rel="noopener" href="https://mohistmc.com/">官网链接</a></p>
+<ul>
+<li>Catserver（推荐）</li>
+</ul>
+<p>Catserver推荐<strong>低版本</strong>模组服（1.12.2）使用。</p>
+<p><a target="_blank" rel="noopener" href="https://catmc.org/">官网链接</a></p>
+<ul>
+<li>Sponge（不推荐）</li>
+</ul>
+<p><strong>插件生态</strong>较差，不推荐使用。</p>
+<p><a target="_blank" rel="noopener" href="https://spongepowered.org/">官网链接</a></p>
+<h2 id="启动服务端"><a href="#启动服务端" class="headerlink" title="启动服务端"></a>启动服务端</h2><p>选择符合自己的服务端核心，并下载下来，放入你的一个文件夹里，此后你的服务器所有数据将会保存在这里。</p>
+<p><strong>本文档使用Paper最新版1.19.2服务端进行演示(#142)</strong></p>
+<p>相信你已经注意到了，你下载的服务端文件扩展名都是<code>.jar</code>，它是一个Java的可执行文件。所谓“开服”，就是要启动这个服务端。</p>
+<p>在相同目录内新建一个批处理文件，扩展名为<code>.bat</code>，里面的命令代表执行这个程序，右键&gt;编辑，输入内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx1G -Xms1G -jar server.jar</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Xmx</code>与<code>Xms</code>代表着分配的最大最小运行内存，通常两者设为相同值，请根据自身电脑配置进行分配。</p>
+<p>通常原版纯净服务器<strong>1G~2G</strong>为宜，大型模组服请至少分配<strong>4G</strong>内存以上。</p>
+<p><code>server.jar</code>为启动的文件名，请更改成你所下载的文件名。</p>
+<p>如果想使用指定Java，而不是默认的，请把Java改成<code>”指向java.exe的文件路径”</code></p>
+<p>保存之后，双击运行。首次启动会下载一些依赖库和原版服务端，这段时间可以做一些有意义的事情。欸？怎么突然关闭了？那是因为我们没有同意EULA协议。找到<code>eula.txt</code>文件，将其中<code>false</code>改为<code>true</code>保存即可。</p>
+<p>再次双击启动，会出现服务器自带GUI界面，等待服务器加载完毕，出现<code>Done (XXXs)!</code>与<code>Timings Reset</code>你的服务器就开起来了！</p>
+<p>快点进入游戏，IP地址输入<code>localhost:25565</code>进入游玩吧！</p>
+<h2 id="设置OP"><a href="#设置OP" class="headerlink" title="设置OP"></a>设置OP</h2><p>OP是服务器的管理员，等服务器开启时，在控制台输入指令<code>/op Username</code>即可给予玩家OP权限。“Username”为玩家游戏内名称。</p>
+<p>OP将默认拥有最高控制台权限，请谨慎给予玩家OP！</p>
+<h2 id="配置server-properties"><a href="#配置server-properties" class="headerlink" title="配置server.properties"></a>配置server.properties</h2><p>细心的你一定会在服务器根目录发现<code>server.properties</code>文件，这里储存的都是服务器的配置文件。</p>
+<p>打不开？使用系统自带记事本就可以啦！</p>
+<h3 id="一些基本设定"><a href="#一些基本设定" class="headerlink" title="一些基本设定"></a>一些基本设定</h3><p><code>gamemode</code> 代表游戏模式。</p>
+<p><code>level-seed</code> 代表地图种子。其实也可以把<code>world</code>、<code>world_nether</code>、<code>world_the_end</code>文件夹替换为你的世界。</p>
+<p><code>enable-command-block</code> 启用命令方块？</p>
+<p><code>motd</code> 显示在玩家服务器列表界面的信息。</p>
+<p><code>difficulty</code> 游戏难度。</p>
+<p><code>max-players</code> 最大玩家数。视自己电脑/服务器配置而定！太多玩家电脑承受不起会导致服务器卡顿崩溃等。</p>
+<p><code>spawn-protection</code> 出生点保护，保护出生点周围的方块不被破坏（OP服务器管理员忽视）。个人觉得这个功能有点烦，朋友之间的小服务器可以设置为<code>0</code>关闭</p>
+<h3 id="高级设定"><a href="#高级设定" class="headerlink" title="高级设定"></a>高级设定</h3><p>在其中找到<code>online-mode</code>一栏，将其改为<code>false</code>就可以允许离线（盗版）玩家进入服务器。小心：离线服务器玩家可随意更改用户名进入，为了保护玩家安全，建议关闭此功能或使用登录插件*（将在以后章节谈到）。</p>
+<p>此时你可能在想，能不能更换服务器的端口呢？MInecraftJava版服务器端口默认为25565，如果被占用，可以在这里找到``设置，更改为你所需要的端口。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>当前你的服务器仅开启在本地，是无法和身处异地的朋友们玩耍的。要解决这个问题，可以申请公网IP或<strong>内网穿透</strong>。</p>
+<p>内网穿透将在以后章节谈到。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/posts/freessl/">免费泛域名 SSL 证书申请<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/posts/minecraftserver2/">手把手教你搭建Minecraft服务器#2<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://www.hachimi2333.tk/">@Hachimi2333</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+<script language=javascript>
+  function siteTime(){
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth()+1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+      var t1 = Date.UTC(2022,09,11,00,00,00); //北京时间2017-09-16 00:00:00创建网站的时间
+      var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+      var diff = t2-t1;
+      var diffYears = Math.floor(diff/years);
+      var diffDays = Math.floor((diff/days)-diffYears*365);
+      var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+      var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+      var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById("sitetime").innerHTML="｜ 小站已运行"+diffYears+"年"+diffDays+"天"+diffHours+"时"+diffMinutes+"分钟"+diffSeconds+"秒";
+  }
+  siteTime();
+</script>
+
+<div style="color: rgb(129, 129, 129);">
+  <a href="https://icp.gov.moe/?keyword=20227230" target="_blank" style="color:rgb(129, 129, 129)">萌ICP备20227230号</a>
+  <span id="sitetime"  style="color: rgb(129, 129, 129);" ></span>
+</div>
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -146,14 +146,18 @@
       var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
       var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
       var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-      document.getElementById("sitetime").innerHTML="｜ 小站已运行"+diffYears+"年"+diffDays+"天"+diffHours+"时"+diffMinutes+"分钟"+diffSeconds+"秒";
+      document.getElementById("sitetime").innerHTML="小站已运行"+diffYears+"年"+diffDays+"天"+diffHours+"时"+diffMinutes+"分钟"+diffSeconds+"秒";
   }
   siteTime();
 </script>
 
-<div style="color: rgb(129, 129, 129);">
-  <a href="https://icp.gov.moe/?keyword=20227230" target="_blank" style="color:rgb(129, 129, 129)">萌ICP备20227230号</a>
-  <span id="sitetime"  style="color: rgb(129, 129, 129);" ></span>
+<div style="color: rgb(129, 129, 129);font-size: 12px;">
+  <p>
+    <a href="https://icp.gov.moe/?keyword=20227230" target="_blank" style="color:rgb(129, 129, 129)">萌ICP备20227230号</a>
+    <span>|</span>
+    <a href="https://cloudflare.com" target="_blank" style="color:rgb(129, 129, 129)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://www.cloudflare.com/favicon-16x16.png" alt="Clouflare"><span> CDN由Cloudflare提供</span></a>
+  </p>
+  <p><span id="sitetime"  style="color: rgb(129, 129, 129);" ></span></p>
 </div>
       <div class='float-panel mobile-only blur' style='display:none'>
   <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
